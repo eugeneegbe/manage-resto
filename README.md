@@ -15,3 +15,14 @@ npm run serve
 ```
 npm run build
 ```
+
+### Simulate db
+Install json-server 
+```
+npm install -g json-server
+```
+
+from `db` folder, start the demo server with 
+```
+json-server --watch db.json
+```
