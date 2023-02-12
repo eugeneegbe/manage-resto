@@ -1,4 +1,5 @@
 # manage-resto
+Small restaurant management system in Vue
 
 ## Project setup
 ```
