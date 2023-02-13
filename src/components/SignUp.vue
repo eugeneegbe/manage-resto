@@ -27,11 +27,9 @@ export default {
                 'password': this.password,
                 'email': this.email
             });
-
-            console.log(result)
             if(result.status == 201){
-                alert("Sign up done!")
                 localStorage.setItem('user-data', JSON.stringify(result.data))
+                this.$router.push({name: 'HomePage'})
             }
         }
     }
