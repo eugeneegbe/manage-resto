@@ -1,22 +1,30 @@
 <template>
+    <ResHeader />
     <img class="logo" src="../assets/yarafdmall.jpeg" />
     <h1>Hello {{ name }}, Welcome on Home Page</h1>
 </template>
 
 <script>
-let username_data = JSON.parse(localStorage.getItem('user-data'))
-const capitalized_user = username_data ?
-    username_data.name.charAt(0).toUpperCase() + username_data.name.slice(1) :
-    null;
+import ResHeader from './ResHeader.vue'
+
+let user_data = localStorage.getItem('user-data')
+let user_name = 'Visitor'
+if(user_data){
+    user_name = JSON.parse(user_data).name
+}
+
 export default {
     name: "HomePage",
+    components: {
+        ResHeader
+    },
     data() {
         return {
-            name: capitalized_user
+            name: user_name
         }
     },
     mounted() {
-        if (!username_data) {
+        if (!user_data) {
             this.$router.push({ name: 'SignUp' })
         }
     }

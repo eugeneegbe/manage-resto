@@ -33,13 +33,14 @@ export default {
             if (result.status == 201) {
                 localStorage.setItem('user-data', JSON.stringify(result.data))
                 this.$router.push({ name: 'HomePage' })
+            }else{
+                this.$router.push({name: "SignUp"})
             }
         }
     },
-    mounted() {
-        // Redirect user to homepage if they are signed in already
-        let user = localStorage.getItem('user-data')
-        if (user) {
+    mounted(){
+        let user_data = localStorage.getItem('user-data')
+        if (user_data) {
             this.$router.push({ name: 'HomePage' })
         }
     }
@@ -68,7 +69,7 @@ export default {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    background-color: #683c2c;
+    background-color: #795547;
     cursor: pointer;
 }
 </style>
