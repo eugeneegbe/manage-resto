@@ -5,6 +5,7 @@
         <input type="email" v-model="email" placeholder="Email" />
         <input type="password" v-model="password" placeholder="Enter password" />
         <button v-on:click="signUp">Sign Up</button>
+        <button @click="$router.push('/login')">Login</button>
     </div>
 </template>
 
@@ -59,7 +60,7 @@ export default {
     border: none;
     color: white;
     padding: 20px;
-    width: 200px;
+    width: 100px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
