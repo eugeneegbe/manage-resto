@@ -10,6 +10,11 @@
             return {
                 name: username
             }
+        },
+        mounted(){
+            if(!this.username){
+                this.$router.push({name: 'SignUp'})
+            }
         }
     }
 </script>
