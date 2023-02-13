@@ -5,6 +5,12 @@
       "password": "dockerpass",
       "email": "Admin",
       "id": 1
+    },
+    {
+      "name": "Eu",
+      "password": "dockerpass",
+      "email": "Admin",
+      "id": 2
     }
   ]
 }
