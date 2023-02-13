@@ -1,15 +1,15 @@
 <template>
     <h1> Sign Up</h1>
     <div class="register">
-      <input type="text" v-model="name" placeholder="Enter name" />
-      <input type="email" v-model="email" placeholder="Email" />
-      <input type="password" v-model="password" placeholder="Enter password" />
-      <button v-on:click="signUp">Sign Up</button>
-  </div>
+        <input type="text" v-model="name" placeholder="Enter name" />
+        <input type="email" v-model="email" placeholder="Email" />
+        <input type="password" v-model="password" placeholder="Enter password" />
+        <button v-on:click="signUp">Sign Up</button>
+    </div>
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from 'axios';
 
 export default {
     name: 'SignUp',
@@ -27,18 +27,45 @@ export default {
                 'password': this.password,
                 'email': this.email
             });
-            if(result.status == 201){
+            if (result.status == 201) {
                 localStorage.setItem('user-data', JSON.stringify(result.data))
-                this.$router.push({name: 'HomePage'})
+                this.$router.push({ name: 'HomePage' })
             }
         }
     },
-    mounted(){
+    mounted() {
         // Redirect user to homepage if they are signed in already
         let user = localStorage.getItem('user-data')
-        if(user){
-            this.$router.push({name: 'HomePage'})
+        if (user) {
+            this.$router.push({ name: 'HomePage' })
         }
     }
 }
 </script>
+
+<style>
+.register input {
+    width: 300px;
+    height: 40px;
+    padding-left: 20px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.7px solid #683c2c;
+}
+
+.register button {
+    border: none;
+    color: white;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    background-color: #683c2c;
+    cursor: pointer;
+}
+</style>

@@ -1,4 +1,5 @@
 <template>
+    <img class="logo" src="../assets/yarafdmall.jpeg"/>
     <h1>Hello {{name}}, Welcome on Home Page</h1>
     <button @click="$router.push('/sign-up')"> Sign Up</button>
 </template>
@@ -14,3 +15,9 @@
         }
     }
 </script>
+
+<style>
+.logo {
+    width: 100px;
+}
+</style>
