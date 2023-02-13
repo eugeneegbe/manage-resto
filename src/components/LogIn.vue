@@ -11,16 +11,26 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: 'LogIn',
         data(){
             return{
-                name: '',
+                email: '',
                 password: ''
             }
         },
         methods: {
-            logIn(){}
+            async logIn(){
+                let result = await axios.get(
+                    `http://localhost:3000/user?email=${this.email}&password=${this.password}`
+                )
+                if (result.status == 200 && result.data.length >= 0) {
+                    localStorage.setItem('user-data', JSON.stringify(result.data[0]))
+                    this.$router.push({ name: 'HomePage' })
+            }
+            }
         }
     };
 </script>

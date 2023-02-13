@@ -6,11 +6,12 @@
 
 <script>
     let username_data = JSON.parse( localStorage.getItem( 'user-data' ) )
+    const capitalized_user = username_data.name.charAt(0).toUpperCase() + username_data.name.slice(1)
     export default {
         name: "HomePage",
         data() {
             return {
-                name: username_data ? username_data.name : "Visitor"
+                name: capitalized_user
             }
         }
     }
