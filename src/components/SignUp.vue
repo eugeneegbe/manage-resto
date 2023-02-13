@@ -1,9 +1,39 @@
 <template>
     <h1> Sign Up</h1>
+    <div class="register">
+      <input type="text" v-model="name" placeholder="Enter name" />
+      <input type="email" v-model="email" placeholder="Email" />
+      <input type="password" v-model="password" placeholder="Enter password" />
+      <button v-on:click="signUp">Sign Up</button>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'SignUp'
+    import axios from 'axios';
+
+export default {
+    name: 'SignUp',
+    data() {
+        return {
+            'name': '',
+            'password': '',
+            'email': ''
+        }
+    },
+    methods: {
+        async signUp() {
+            let result = await axios.post('http://localhost:3000/user', {
+                'name': this.name,
+                'password': this.password,
+                'email': this.email
+            });
+
+            console.log(result)
+            if(result.status == 201){
+                alert("Sign up done!")
+                localStorage.setItem('user-data', JSON.stringify(result.data))
+            }
+        }
     }
+}
 </script>

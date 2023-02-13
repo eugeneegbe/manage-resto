@@ -1,13 +1,6 @@
 <template>
   <img class="logo" src="./assets/yarafdmall.jpeg"/>
   <SignUp />
-
-  <div class="register">
-      <input type="text" placeholder="Enter name" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Enter password" />
-      <button>Sign Up</button>
-  </div>
 </template>
 
 <script>
