@@ -5,7 +5,9 @@
         <input type="email" v-model="email" placeholder="Email" />
         <input type="password" v-model="password" placeholder="Enter password" />
         <button v-on:click="signUp">Sign Up</button>
-        <button @click="$router.push('/login')">Login</button>
+        <p>
+            <router-link to="/login">Login</router-link>
+        </p>
     </div>
 </template>
 
