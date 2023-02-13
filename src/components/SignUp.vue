@@ -32,6 +32,13 @@ export default {
                 this.$router.push({name: 'HomePage'})
             }
         }
+    },
+    mounted(){
+        // Redirect user to homepage if they are signed in already
+        let user = localStorage.getItem('user-data')
+        if(user){
+            this.$router.push({name: 'HomePage'})
+        }
     }
 }
 </script>
