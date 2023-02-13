@@ -1,9 +1,12 @@
 <template>
     <h1> Login to YARA</h1>
     <div class="register">
-        <input type="text" v-model="name" placeholder="Enter name" />
+        <input type="email" v-model="email" placeholder="Enter email" />
         <input type="password" v-model="password" placeholder="Enter password" />
         <button v-on:click="logIn">Login</button>
+        <p>
+            <router-link to="/sign-up">Sign Up</router-link>
+        </p>
     </div>
 </template>
 
