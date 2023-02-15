@@ -18,11 +18,12 @@
         data(){
             return{
                 email: '',
-                password: ''
+                password: '',
+                isLoggedIn: false
             }
         },
         methods: {
-            async logIn(){
+            logIn(){
                 // let result = await axios.get(
                 //     `http://localhost:3000/user?email=${this.email}&password=${this.password}`
                 // )
@@ -30,15 +31,13 @@
                 if (result.status == 200 && result.data.length >= 0) {
                     console.log(result.data[0])
                     localStorage.setItem('user-data', JSON.stringify((result).data[0]))
-                    this.$router.push({ name: 'HomePage' })
-            }
+                }
             }
         },
         mounted() {
-            // Redirect user to homepage if they are signed in already
-            let user = JSON.parse(localStorage.getItem('user-data'))
-            if (user) {
-                this.$router.push({ name: 'HomePage' })
+            let user_data = JSON.parse(localStorage.getItem('user-data'))
+            if (user_data) {
+                this.$router.push({ path: '/' })
             }
         }
     };

@@ -25,9 +25,8 @@ export default {
         }
     },
     mounted() {
-        console.log('home=> ',this.name)
         if (this.name == '') {
-            this.$router.push({ name: 'SignUp' })
+            this.$router.push({ path: '/login' })
         }
     }
 }

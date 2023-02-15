@@ -32,9 +32,9 @@ export default {
             });
             if (result.status == 201) {
                 localStorage.setItem('user-data', JSON.stringify(result.data))
-                this.$router.push({ name: 'HomePage' })
+                this.$router.go('/')
             }else{
-                this.$router.push({name: "SignUp"})
+                this.$router.go('/sign-up')
             }
         }
     },
@@ -42,7 +42,7 @@ export default {
         // Redirect user to homepage if they are signed in already
         let user = JSON.parse(localStorage.getItem('user-data'))
         if (user) {
-            this.$router.push({ name: 'HomePage' })
+            this.$router.go('/')
         }
     }
 }
