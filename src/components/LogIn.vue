@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    // import axios from 'axios'
 
     export default {
         name: 'LogIn',
@@ -23,18 +23,20 @@
         },
         methods: {
             async logIn(){
-                let result = await axios.get(
-                    `http://localhost:3000/user?email=${this.email}&password=${this.password}`
-                )
+                // let result = await axios.get(
+                //     `http://localhost:3000/user?email=${this.email}&password=${this.password}`
+                // )
+                let result = {"status": 200, "data":[{"name": "admin", "email": "admin@test.com","password": "admin", "id": 1}]}
                 if (result.status == 200 && result.data.length >= 0) {
-                    localStorage.setItem('user-data', JSON.stringify(result.data[0]))
+                    console.log(result.data[0])
+                    localStorage.setItem('user-data', JSON.stringify((result).data[0]))
                     this.$router.push({ name: 'HomePage' })
             }
             }
         },
         mounted() {
             // Redirect user to homepage if they are signed in already
-            let user = localStorage.getItem('user-data')
+            let user = JSON.parse(localStorage.getItem('user-data'))
             if (user) {
                 this.$router.push({ name: 'HomePage' })
             }

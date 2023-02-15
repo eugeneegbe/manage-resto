@@ -7,11 +7,11 @@
 <script>
 import ResHeader from './ResHeader.vue'
 
-let user_data = localStorage.getItem('user-data')
-let user_name = 'Visitor'
-console.log(user_data)
-if(user_data !== 'undefined'){
-    user_name = JSON.parse(user_data).name
+let user_data = JSON.parse(localStorage.getItem('user-data'))
+let user_name = ''
+
+if(user_data){
+    user_name = user_data.name
 }
 
 export default {
@@ -25,7 +25,8 @@ export default {
         }
     },
     mounted() {
-        if (!user_data) {
+        console.log('home=> ',this.name)
+        if (this.name == '') {
             this.$router.push({ name: 'SignUp' })
         }
     }
