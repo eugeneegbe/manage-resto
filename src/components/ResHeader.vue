@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="left-menu">
             <a href="#">Home</a>
-            <a href="#">Add Product</a>
+            <a href="#">Product</a>
         </div>
 
         <div class="right-menu">
