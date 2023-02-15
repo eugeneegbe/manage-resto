@@ -6,7 +6,7 @@
         </div>
 
         <div class="right-menu">
-            <a href="#">Login</a>
+            <a href="#">Logout</a>
             <a href="#">Sign Up</a>
         </div>
 
