@@ -7,7 +7,6 @@
 
         <div class="right-menu">
             <a href="#">Logout</a>
-            <a href="#">Sign Up</a>
         </div>
 
     </div>
