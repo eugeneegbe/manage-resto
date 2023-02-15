@@ -6,7 +6,7 @@
         </div>
 
         <div class="right-menu">
-            <a href="#">Logout</a>
+            <a @click="logout">Logout</a>
         </div>
 
     </div>
@@ -14,7 +14,13 @@
 
 <script>
     export default {
-        name: "ResHeader"
+        name: "ResHeader",
+    methods: {
+        logout() {
+            localStorage.clear()
+            this.$router.push({ name: 'HomePage' })
+        }
+    }
     }
 </script>
 

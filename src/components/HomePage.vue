@@ -9,7 +9,8 @@ import ResHeader from './ResHeader.vue'
 
 let user_data = localStorage.getItem('user-data')
 let user_name = 'Visitor'
-if(user_data){
+console.log(user_data)
+if(user_data !== 'undefined'){
     user_name = JSON.parse(user_data).name
 }
 
