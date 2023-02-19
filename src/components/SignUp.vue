@@ -42,7 +42,7 @@ export default {
         // Redirect user to homepage if they are signed in already
         let user = JSON.parse(localStorage.getItem('user-data'))
         if (user) {
-            this.$router.go('/')
+            this.$router.push({name: 'HomePage'})
         }
     }
 }

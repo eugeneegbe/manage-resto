@@ -1,11 +1,20 @@
 <template>
     <div class="nav">
         <div class="left-menu">
-            <a href="#">Home</a>
-            <a href="#">Product</a>
+            <p>
+            <router-link to="/login">Home</router-link>
+            </p>
+            <p>
+            <router-link to="/login">Product</router-link>
+            </p>
         </div>
 
+        
+
         <div class="right-menu">
+            <p>
+            <router-link to="/login">Login</router-link>
+            </p>
             <a @click="logout">Logout</a>
         </div>
 
@@ -14,11 +23,11 @@
 
 <script>
     export default {
-        name: "ResHeader",
+    name: "ResHeader",
     methods: {
         logout() {
             localStorage.clear()
-            this.$router.push({ name: 'Login' })
+            this.$router.push({ name: 'LogIn' })
         }
     }
     }
@@ -30,7 +39,6 @@
     background-color: #795547;
     overflow: hidden;
     margin-bottom: 30px;
-    padding: 15px;
 }
 
 .nav a{
@@ -45,10 +53,12 @@
 
 .left-menu{
     float: left;
+    display: flex;
 }
 
 .right-menu {
     float: right;
+    display: flex;
 }
 
 .nav a:hover{

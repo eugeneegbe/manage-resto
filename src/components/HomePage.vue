@@ -7,12 +7,6 @@
 <script>
 import ResHeader from './ResHeader.vue'
 
-let user_data = JSON.parse(localStorage.getItem('user-data'))
-let user_name = ''
-
-if(user_data){
-    user_name = user_data.name
-}
 
 export default {
     name: "HomePage",
@@ -21,11 +15,15 @@ export default {
     },
     data() {
         return {
-            name: user_name
+            name: ''
         }
     },
     mounted() {
-        if (this.name == '') {
+        let user_data = JSON.parse(localStorage.getItem('user-data'))
+
+        if(user_data){
+            this.name = user_data.name
+        }else{
             this.$router.push({ path: '/login' })
         }
     }

@@ -36,8 +36,10 @@
         },
         mounted() {
             let user_data = JSON.parse(localStorage.getItem('user-data'))
-            if (user_data) {
-                this.$router.push({ path: '/' })
+            if (user_data === null) {
+                // this.$router.push({ name: 'SignUp' });
+            }else{
+                this.$router.push({ name: 'HomePage' })
             }
         }
     };
