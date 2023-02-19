@@ -1,8 +1,8 @@
 import HomePage from './components/HomePage.vue'
 import SignUp from './components/SignUp.vue'
 import LogIn from './components/LogIn.vue'
-import AddRestaurant from './components/AddRestaurant.vue'
-import UpdateRestaurant from './components/UpdateRestuarant.vue'
+import AddProduct from './components/AddProduct.vue'
+import UpdateProduct from './components/UpdateProduct.vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -13,13 +13,13 @@ const routes = [
         path: '/'
     },
     {
-        name: 'AddRestaurant',
-        component: AddRestaurant,
+        name: 'AddProduct',
+        component: AddProduct,
         path: '/add'
     },
     {
-        name: 'UpdateRestaurant',
-        component: UpdateRestaurant,
+        name: 'UpdateProduct',
+        component: UpdateProduct,
         path: '/update'
     },
     {

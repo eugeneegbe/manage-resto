@@ -7,7 +7,7 @@
 import ResHeader from './ResHeader'
 
 export default {
-    name: "UpdateRestaurant",
+    name: "UpdateProduct",
     components: {
         ResHeader
     },
