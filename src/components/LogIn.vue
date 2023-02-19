@@ -31,6 +31,7 @@
                 if (result.status == 200 && result.data.length >= 0) {
                     console.log(result.data[0])
                     localStorage.setItem('user-data', JSON.stringify((result).data[0]))
+                    this.$router.push({ name: 'HomePage' })
                 }
             }
         },
