@@ -1,18 +1,10 @@
 <template>
     <div class="nav">
         <div class="left-menu">
-            <p>
             <router-link to="/login">Home</router-link>
-            </p>
-            <p>
             <router-link to="/add">Add Product</router-link>
-            </p>
-            <p>
             <router-link to="/update">Update Product</router-link>
-            </p>
         </div>
-
-        
 
         <div class="right-menu">
             <p>
