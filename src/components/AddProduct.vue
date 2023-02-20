@@ -1,6 +1,5 @@
 <template>
     <ResHeader />
-    <h1>Hello {{ name }}, Welcome on Add Restaurant Page</h1>
     <form class="add">
         <input type="text" name="name" placeholder="Enter Product Name"  v-model="restaurant.name"/>
         <input type="number" name="stock" placeholder="Amount in Stock" v-model="restaurant.stock"/>
@@ -28,7 +27,7 @@ export default {
     },
     methods: {
         addRestaurant(){
-
+            console.log(this.res)
         }
     },
     mounted() {
