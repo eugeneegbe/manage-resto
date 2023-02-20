@@ -3,14 +3,14 @@
     <img class="logo" src="../assets/yarafdmall.jpeg" />
     <div class="container text-center  mt-5 mb-5">
         <h1>Hello {{ name }}, Welcome on Home Page</h1>
-        <table id="productsTable" class="table table-bordered table-striped">
+        <table id="productsTable" class="table table-bordered mt-5">
             <thead>
                 <tr>
                     <td>No</td>
                     <td>Name</td>
                     <td>Amount In Stock</td>
                     <td>Unit Price</td>
-                    <td>Action</td>
+                    <span><p>Action</p></span>
                 </tr>
             </thead>
             <tbody>
@@ -19,7 +19,8 @@
                     <td>{{item.name}}</td>
                     <td>{{item.stock}}</td>
                     <td>{{item.price}}</td>
-                    <router-link :to="'/update/' +item.id ">update</router-link>
+                    <router-link class="link-warning" :to="'/update/' +item.id ">Update</router-link>
+                    <router-link class="link-danger" :to="'/update/' +item.id ">Delete</router-link>
                 </tr>
             </tbody>
         </table>
@@ -79,8 +80,8 @@ export default {
     width: 100px;
 }
 td{
-    widows: 160px;
-    height: 40px;
-    padding: 2px;
+    padding: 10px;
+    font-size: medium;
+    font-weight: 500;
 }
 </style>
