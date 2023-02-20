@@ -48,7 +48,6 @@
 
 .navbar a{
     color: white;
-    padding: 14px;
     font-size: large;
     text-align: center;
     text-decoration: none;
