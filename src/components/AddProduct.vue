@@ -1,10 +1,15 @@
 <template>
     <ResHeader />
     <form class="add">
-        <input type="text" name="name" placeholder="Enter Product Name"  v-model="restaurant.name"/>
-        <input type="number" name="stock" placeholder="Amount in Stock" v-model="restaurant.stock"/>
-        <input type="number" name="price" placeholder="Unit price" v-model="restaurant.price"/>
-        <button type="button" v-on:click="addRestaurant">Add Product</button>
+        <div class="input-group">
+            <label>Product Name:</label>
+            <input type="text" name="name" placeholder="Enter Product Name"  v-model="product.name"/>
+        </div>
+        <label>Amount in stock:</label>
+        <input type="number" name="stock" v-model="product.stock"/>
+        <label>Unit Price:</label>
+        <input type="number" name="price"  v-model="product.price"/>
+        <button type="button" v-on:click="addProduct">Add Product</button>
     </form>
 </template>
 
@@ -18,7 +23,7 @@ export default {
     },
     data() {
         return {
-            restaurant: {
+            product: {
                 name: '',
                 stock: 0,
                 price: 0.0
@@ -26,8 +31,8 @@ export default {
         }
     },
     methods: {
-        addRestaurant(){
-            console.log(this.res)
+        addProduct(){
+            console.log(this.product)
         }
     },
     mounted() {
@@ -46,4 +51,15 @@ export default {
 .logo {
     width: 100px;
 }
+
+label{
+    display: inline-block;
+    width: 320px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+input {
+  display: inline-block;
+}
+
 </style>
