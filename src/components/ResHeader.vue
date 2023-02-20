@@ -3,7 +3,6 @@
         <div class="left-menu">
             <router-link to="/login">Home</router-link>
             <router-link to="/add">Add Product</router-link>
-            <router-link to="/update">Update Product</router-link>
         </div>
 
         <div class="right-menu">

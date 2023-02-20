@@ -20,7 +20,7 @@ const routes = [
     {
         name: 'UpdateProduct',
         component: UpdateProduct,
-        path: '/update'
+        path: '/update/:id'
     },
     {
         name: 'SignUp',

@@ -8,12 +8,14 @@
             <td>Name</td>
             <td>Amount In Stock</td>
             <td>Unit Price</td>
+            <td>Action</td>
         </tr>
         <tr v-for="item in restaurants" :key="item.id">
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td>{{item.stock}}</td>
             <td>{{item.price}}</td>
+            <router-link :to="'/update/' +item.id ">update</router-link>
         </tr>
     </table>
 </template>

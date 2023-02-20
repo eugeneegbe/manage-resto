@@ -33,6 +33,7 @@ export default {
     methods: {
         addProduct(){
             console.log(this.product)
+            // TODO: use axios to persist product data
         }
     },
     mounted() {

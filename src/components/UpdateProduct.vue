@@ -1,6 +1,16 @@
 <template>
     <ResHeader />
-    <h1>Hello {{ name }}, Welcome on Update Restaurant Page</h1>
+    <form class="add">
+        <div class="input-group">
+            <label>Product Name:</label>
+            <input type="text" name="name" placeholder="Enter Product Name"  v-model="product.name"/>
+        </div>
+        <label>Amount in stock:</label>
+        <input type="number" name="stock" v-model="product.stock"/>
+        <label>Unit Price:</label>
+        <input type="number" name="price"  v-model="product.price"/>
+        <button type="button" v-on:click="addProduct">Update Product</button>
+    </form>
 </template>
 
 <script>
@@ -13,7 +23,11 @@ export default {
     },
     data() {
         return {
-            name: ''
+            product: {
+                name: '',
+                stock: 0,
+                price: 0.0    
+            }
         }
     },
     mounted() {
