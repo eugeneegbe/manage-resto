@@ -1,16 +1,24 @@
 <template>
     <ResHeader />
-    <form class="add">
-        <div class="input-group">
-            <label>Product Name:</label>
-            <input type="text" name="name" placeholder="Enter Product Name"  v-model="product.name"/>
-        </div>
-        <label>Amount in stock:</label>
-        <input type="number" name="stock" v-model="product.stock"/>
-        <label>Unit Price:</label>
-        <input type="number" name="price"  v-model="product.price"/>
-        <button type="button" v-on:click="addProduct">Add Product</button>
-    </form>
+
+    <div class="container text-center  mr-auto">
+        <form>
+            <div class="form-group">
+                <label for="product_name">Product Name</label>
+                <input type="text" class="form-control" aria-describedby="nameHelp">
+                <small id="nameHelp" class="form-text text-muted">Name of the product</small>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount in stock:</label>
+                <input type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount in stock:</label>
+                <input type="number" class="form-control">
+            </div>
+            <button type="button"  class="btn btn-primary " v-on:click="addProduct">Add Product</button>
+        </form>
+    </div>
 </template>
 
 <script>

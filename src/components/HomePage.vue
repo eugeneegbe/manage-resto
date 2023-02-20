@@ -1,23 +1,29 @@
 <template>
     <ResHeader />
     <img class="logo" src="../assets/yarafdmall.jpeg" />
-    <h1>Hello {{ name }}, Welcome on Home Page</h1>
-    <table border="1">
-        <tr>
-            <td>No</td>
-            <td>Name</td>
-            <td>Amount In Stock</td>
-            <td>Unit Price</td>
-            <td>Action</td>
-        </tr>
-        <tr v-for="item in restaurants" :key="item.id">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.stock}}</td>
-            <td>{{item.price}}</td>
-            <router-link :to="'/update/' +item.id ">update</router-link>
-        </tr>
-    </table>
+    <div class="container text-center  mt-5 mb-5">
+        <h1>Hello {{ name }}, Welcome on Home Page</h1>
+        <table id="productsTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Name</td>
+                    <td>Amount In Stock</td>
+                    <td>Unit Price</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in restaurants" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.stock}}</td>
+                    <td>{{item.price}}</td>
+                    <router-link :to="'/update/' +item.id ">update</router-link>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>

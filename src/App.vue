@@ -3,7 +3,7 @@
 </template>
 
 <script>
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default {
   name: 'App'
@@ -25,9 +25,14 @@ body{
 }
 
 form {
-  margin-top: 70px;  
+  margin-top: 50px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
 }
-
+.form-group{
+  margin-bottom: 25px;
+}
 .register input, .add input {
     width: 300px;
     height: 40px;
