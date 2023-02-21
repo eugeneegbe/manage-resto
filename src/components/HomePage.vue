@@ -20,7 +20,7 @@
                     <td>{{item.stock}}</td>
                     <td>{{item.price}}</td>
                     <router-link class="link-warning" :to="'/update/' +item.id ">Update</router-link>
-                    <button class="delete-proudct btn btn-danger" v-on:click="deleProduct(item.id)">Delete</button>
+                    <button type="button"  class="btn btn-danger" v-on:click="deleteProduct(item.id)">Delete</button>
                 </tr>
             </tbody>
         </table>
@@ -48,8 +48,17 @@ export default {
         }
     },
     methods: {
-        deleProduct(id){
-            console.log('del', id);
+        async deleteProduct(id) {
+
+            let result = await axios.delete(
+                `http://localhost:3000/products?id=`+ id, {
+                "headers": {
+                    'Access-Control-Allow-Origin': true,
+                }
+            });
+            if(result.data.status == 'success'){
+                this.$router.push({ name: 'HomePage' })
+            }
         }
     },
     async mounted() {

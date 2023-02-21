@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="amount">Price per unit:</label>
                 <input type="number" v-model="product.price" class="form-control">
-            </div>
+            </div> 
             <button type="button"  class="btn btn-primary " v-on:click="updateProduct">Update</button>
         </form>
     </div>
