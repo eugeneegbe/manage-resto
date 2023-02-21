@@ -44,9 +44,8 @@ export default {
     },
     mounted() {
         let user_data = JSON.parse(localStorage.getItem('user-data'))
-
         if(user_data){
-            this.name = user_data.name
+            this.name = user_data.username
             let restaurants = [
                 {
                     "id": 1,
