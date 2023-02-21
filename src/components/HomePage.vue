@@ -2,7 +2,7 @@
     <ResHeader />
     <img class="logo" src="../assets/yarafdmall.jpeg" />
     <div class="container text-center  mt-5 mb-5">
-        <h1>Hello {{ name }}, Welcome on Home Page</h1>
+        <h1>Hello {{ username }}, Welcome on Home Page</h1>
         <table id="productsTable" class="table table-bordered mt-5">
             <thead>
                 <tr>
@@ -14,13 +14,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in restaurants" :key="item.id">
+                <tr v-for="item in products" :key="item.id">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.stock}}</td>
                     <td>{{item.price}}</td>
                     <router-link class="link-warning" :to="'/update/' +item.id ">Update</router-link>
-                    <router-link class="link-danger" :to="'/update/' +item.id ">Delete</router-link>
+                    <button class="delete-proudct btn btn-danger" v-on:click="deleProduct(item.id)">Delete</button>
                 </tr>
             </tbody>
         </table>
@@ -29,7 +29,7 @@
 
 <script>
 import ResHeader from './ResHeader.vue'
-
+import axios from 'axios'
 
 export default {
     name: "HomePage",
@@ -38,35 +38,34 @@ export default {
     },
     data() {
         return {
-            name: '',
-            restaurants: []
+            username: '',
+            products: [{
+                id: '',
+                name: '',
+                stock: '',
+                price: ''
+            }]
         }
     },
-    mounted() {
+    methods: {
+        deleProduct(id){
+            console.log('del', id);
+        }
+    },
+    async mounted() {
         let user_data = JSON.parse(localStorage.getItem('user-data'))
         if(user_data){
-            this.name = user_data.username
-            let restaurants = [
-                {
-                    "id": 1,
-                    "name": "Bavaria",
-                    "stock": 25,
-                    "price": 1000
-                },
-                {
-                    "id": 2,
-                    "name": "Tour Cantelou",
-                    "stock": 400,
-                    "price": 5000
-                },
-                {
-                    "id": 3,
-                    "name": "Djino Cocktail",
-                    "stock": 30,
-                    "price": 300
+            this.username = user_data.username
+            let result = await axios.get(
+                    `http://localhost:3000/products`, {
+                    "headers": {
+                        'Access-Control-Allow-Origin': true,
+                        }
+                    });
+                if (result.status == 200) {
+                    this.products = result.data.data
+                    this.$router.push({ name: 'HomePage' })
                 }
-            ]
-            this.restaurants = restaurants
         }else{
             this.$router.push({ path: '/login' })
         }
@@ -83,4 +82,7 @@ td{
     font-size: medium;
     font-weight: 500;
 }
+.delete-proudct{
+    color: black;
+} 
 </style>
