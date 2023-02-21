@@ -22,6 +22,7 @@
 
 <script>
 import ResHeader from './ResHeader'
+import axios from 'axios'
 
 export default {
     name: "UpdateProduct",
@@ -31,6 +32,7 @@ export default {
     data() {
         return {
             product: {
+                id: '',
                 name: '',
                 stock: 0,
                 price: 0.0    
@@ -43,7 +45,7 @@ export default {
             // then redirect to the home page
         }
     },
-    mounted() {
+    async mounted() {
         let user_data = JSON.parse(localStorage.getItem('user-data'))
         let sample = {
             name: "Cassava",
@@ -52,19 +54,20 @@ export default {
         }
         this.product = sample
 
-        if(user_data){
-            console.log(this.$route.params.id)
-            /* Use the above id parameter, make a request to the  server
-            get the data return and set the data value for product
-            This should preset the fields
-            like so:
-
-            this.product.name = "Cassava"
-            this.product.stock = 300;
-            this.product.price = 1000; 
-            
-            NOTE: with binding, this.restaurant = result.data
-            */
+        if (user_data) {
+            let target_id = [this.$route.params.id]
+            let result = await axios.get(
+                `http://localhost:3000/products`, {
+                "headers": {
+                    'Access-Control-Allow-Origin': true,
+                }
+            });
+            if (result.status == 200) {
+                this.product = result.data.data.filter(product => product.id == target_id)[0];
+                console.log(this.product)
+            }else{
+                this.$router.push({ name: '/HomePage' })
+            }
 
         }else{
             this.$router.push({ path: '/login' })
