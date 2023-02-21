@@ -12,10 +12,10 @@
                 <input type="number" v-model="product.stock" class="form-control">
             </div>
             <div class="form-group">
-                <label for="amount">Amount in stock:</label>
+                <label for="amount">Price per unit:</label>
                 <input type="number" v-model="product.price" class="form-control">
             </div>
-            <button type="button"  class="btn btn-primary " v-on:click="addProduct">Add Product</button>
+            <button type="button"  class="btn btn-primary " v-on:click="updateProduct">Update</button>
         </form>
     </div>
 </template>
@@ -40,9 +40,10 @@ export default {
         }
     },
     methods: {
-        updateProduct(){
+        async updateProduct(){
             // Make a request to the server to update product with id from route params
             // then redirect to the home page
+           
         }
     },
     async mounted() {
@@ -64,7 +65,6 @@ export default {
             });
             if (result.status == 200) {
                 this.product = result.data.data.filter(product => product.id == target_id)[0];
-                console.log(this.product)
             }else{
                 this.$router.push({ name: '/HomePage' })
             }

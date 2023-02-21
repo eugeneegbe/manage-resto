@@ -13,8 +13,8 @@
                 <input type="number" v-model="product.stock" class="form-control">
             </div>
             <div class="form-group">
-                <label for="amount">Amount in stock:</label>
-                <input type="number" v-model="product.amount" class="form-control">
+                <label for="amount">Price per unit:</label>
+                <input type="number" v-model="product.price" class="form-control">
             </div>
             <button type="button"  class="btn btn-primary " v-on:click="addProduct">Add Product</button>
         </form>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import ResHeader from './ResHeader'
 
 export default {
@@ -39,9 +40,13 @@ export default {
         }
     },
     methods: {
-        addProduct(){
-            console.log(this.product)
+        async addProduct(){
             // TODO: use axios to persist product data
+            let result = await axios.post(
+                    `http://localhost:3000/products`, this.product);
+            if(result.data.status == 'success'){
+                this.$router.push({ name: 'HomePage' })
+            }
         }
     },
     mounted() {
