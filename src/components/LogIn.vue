@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    // import axios from 'axios'
+    import axios from 'axios'
 
     export default {
         name: 'LogIn',
@@ -23,15 +23,19 @@
             }
         },
         methods: {
-            logIn(){
-                // let result = await axios.get(
-                //     `http://localhost:3000/user?email=${this.email}&password=${this.password}`
-                // )
-                let result = {"status": 200, "data":[{"name": "admin", "email": "admin@test.com","password": "admin", "id": 1}]}
-                if (result.status == 200 && result.data.length >= 0) {
-                    console.log(result.data[0])
-                    localStorage.setItem('user-data', JSON.stringify((result).data[0]))
+            async logIn(){
+                let result = await axios.get(
+                    `http://localhost:3000/user?email=`+this.email+ `&passcode=`+this.password, {
+                    "headers": {
+                        'Access-Control-Allow-Origin': true,
+                        }
+                    });
+                if (result.status == 200) {
+                    console.log(result.data.data)
+                    localStorage.setItem('user-data', JSON.stringify((result).data.data[0]))
                     this.$router.push({ name: 'HomePage' })
+                }else{
+                    // TODO: inform user of wrong credentials
                 }
             }
         },

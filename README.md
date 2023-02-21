@@ -1,10 +1,12 @@
 # manage-resto
-Small restaurant management system in Vue
+Small restaurant management system in Vue + Express
 
 ## Project setup
+* Install client dependencies from `src`
 ```
 npm install
 ```
+* Install the server dependences from `src/assets/db` using same command as above
 
 ### Compiles and hot-reloads for development
 ```
@@ -16,13 +18,8 @@ npm run serve
 npm run build
 ```
 
-### Simulate db
-Install json-server 
+### Run database server
+run the server from `src/assets/db
 ```
-npm install -g json-server
-```
-
-from `db` folder, start the demo server with 
-```
-json-server --watch db.json
+node server.js
 ```
