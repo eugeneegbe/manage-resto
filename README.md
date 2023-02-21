@@ -38,7 +38,7 @@ CREATE TABLE product (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name text NOT NULL UNIQUE,
   stock REAL NOT NULL,
-  stock REAL NOT NULL
+  price REAL NOT NULL
 );
 
 ```
