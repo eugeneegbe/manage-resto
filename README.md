@@ -6,7 +6,7 @@ Small restaurant management system in Vue + Express
 ```
 npm install
 ```
-* Install the server dependences from `src/assets/db` using same command as above
+* Install the server dependences from `server/db` using same command as above
 
 ### Compiles and hot-reloads for development
 ```
@@ -20,7 +20,7 @@ npm run build
 
 ### Run database server
 
-* Create the database from the `src/assets/db`
+* Create the database from the `server/db`
 ```
 sqlite3 restaurant.db
 ```
@@ -42,7 +42,7 @@ CREATE TABLE product (
 );
 
 ```
-* Run the server from `src/assets/db`
+* Run the server from `server`
 ```
 node server.js
 ```
