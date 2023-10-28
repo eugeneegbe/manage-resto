@@ -23,4 +23,4 @@ pnpm-debug.log*
 *.sw?
 
 # Demo database changes
-src/assets/db/*
+server/db/*

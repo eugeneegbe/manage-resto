@@ -1,0 +1,25 @@
+version: '3'
+services:
+  # Application server
+  manage-resto:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  resto-server:
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+  # Database service
+  resto-db-server:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/src/assets/db
+    ports:
+      - 9000:9000
+    restart: unless-stopped
