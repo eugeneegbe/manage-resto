@@ -47,7 +47,7 @@ CREATE TABLE product (
 node server.js
 ```
 
-== Dcoker Setup ==
+## Dcoker Setup
 You may not want to go through the stress of setting up the different components separately, just use the following commmand
 
 ```docker-compose -f docker-compose.yaml up ```
